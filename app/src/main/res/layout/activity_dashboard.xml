@@ -14,7 +14,7 @@
             android:id="@+id/tvWelcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Selamat Datang, Admin"
+            android:text="Selamat Datang, Raihan"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_centerVertical="true"/>

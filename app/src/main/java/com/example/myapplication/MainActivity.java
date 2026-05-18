@@ -26,21 +26,17 @@ public class MainActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("UserSession", Context.MODE_PRIVATE);
 
-        // Cek apakah user sudah login sebelumnya
         if (sharedPreferences.getBoolean("isLoggedIn", false)) {
             pindahKeDashboard();
         }
 
-        // Tombol Login
         btnLogin.setOnClickListener(v -> {
             String username = etUsername.getText().toString().trim();
             String password = etPassword.getText().toString().trim();
 
-            // Validasi hardcode dan data kosong
             if (username.isEmpty() || password.isEmpty()) {
                 Toast.makeText(MainActivity.this, "Data tidak boleh kosong!", Toast.LENGTH_SHORT).show();
-            } else if (username.equals("admin") && password.equals("admin123")) {
-                // Simpan status login ke SharedPreferences
+            } else if (username.equals("raihan") && password.equals("10123006")) {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean("isLoggedIn", true);
                 editor.putString("username", username);
@@ -53,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Tombol Cancel (Hapus input teks)
         btnCancel.setOnClickListener(v -> {
             etUsername.setText("");
             etPassword.setText("");
@@ -63,6 +58,6 @@ public class MainActivity extends AppCompatActivity {
     private void pindahKeDashboard() {
         Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
         startActivity(intent);
-        finish(); // Menutup MainActivity agar tidak bisa kembali dengan tombol back
+        finish();
     }
 }
